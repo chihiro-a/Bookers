@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
@@ -12,7 +13,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_id)
     book.save
-    redirect_to books_path
+    redirect_to books_path(book.id)
     # リダイレクト先確認
   end
 
