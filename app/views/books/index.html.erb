@@ -9,6 +9,7 @@
     </header>
     <div class="main">
       <div class="main-left">
+        <!--テーブルタグを使うように変更する！！-->
         <p class="text">リーダブルコード</p>
         <p class="text">トラブル知らずのシステム設計</p>
       </div>
@@ -24,6 +25,13 @@
     </div>
   </div>
   <h3>New book</h3>
+  <%= form_with model: @book,local:true do |f| %>
+  <div class="text-box">Title</div>
+  <%= f.text_field :title %>
+  <div class="text-box">Body</div>
+  <%= f.text_area :body %>
+  <div><%= f.submit "Create Book" %></div>
+  <% end %>
 
 
 </body>

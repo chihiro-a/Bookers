@@ -3,18 +3,21 @@ class BooksController < ApplicationController
   end
 
   def show
-    
+    @book = Book.find(params[:id])
   end
 
   def new
     @book = Book.new
+    # newの中でインデックスへアクセスするよう記載できないか？？
   end
 
   def create
-    book = Book.new(book_id)
-    book.save
-    redirect_to books_path(book.id)
-    # リダイレクト先確認
+    # @book = Book.new
+    # new内での定義ではなくcreate内で定義した
+    @book = Book.new(book_params)
+    @book.save
+    redirect_to ("/books/#{@book[:id]}")
+    # リダイレクト先確認　showへ
   end
 
   def edit
@@ -22,7 +25,8 @@ class BooksController < ApplicationController
 
 
   private
-  def book_id
-    params.require(:book).permit( :title, :body)
+  def book_params
+    params.permit(:title, :body)
+    # require(:book).の記述を抜いた
   end
 end

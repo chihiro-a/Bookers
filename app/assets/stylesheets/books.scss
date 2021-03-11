@@ -9,19 +9,25 @@ body{
 header{
   display: flex;
   justify-content:center;
+  height : 18px;
+  margin-left: 0;
 }
 
 
 .title{
   width: 25%;
+  background-color: blue;
+
 }
 
 .body{
   width: 50%;
+  background-color: yellow;
 }
 
 .right-space{
   width: 25%;
+  background-color: red;
 }
 
 .title , .body{
@@ -43,15 +49,19 @@ header{
 
 .main-left{
   width: 25%;
+  background-color: blue;
 }
 
 .main-center{
   width: 50%;
-  padding-left: px;
+  padding-left: 1px;
+  background-color: yellow;
 }
 
 .main-right{
   width: 25%;
+  background-color: red;
+
 }
 
 .text{
@@ -60,7 +70,8 @@ header{
 }
 
 .link{
-  display: inline-block;
+  display: inline;
   font-size: 13px;
 }
+
 
