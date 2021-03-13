@@ -6,28 +6,21 @@ body{
   max-width : 800px;
 }
 
-header{
-  display: flex;
-  justify-content:center;
-  height : 18px;
-  margin-left: 0;
+table{
+  width : 100%;
 }
 
 
 .title{
   width: 25%;
-  background-color: blue;
-
 }
 
 .body{
   width: 50%;
-  background-color: yellow;
 }
 
 .right-space{
   width: 25%;
-  background-color: red;
 }
 
 .title , .body{
@@ -42,31 +35,9 @@ header{
   margin-left: 5px;
 }
 
-.main{
-  display: flex;
-  justify-content:center;
-}
-
-.main-left{
-  width: 25%;
-  background-color: blue;
-}
-
-.main-center{
-  width: 50%;
-  padding-left: 1px;
-  background-color: yellow;
-}
-
-.main-right{
-  width: 25%;
-  background-color: red;
-
-}
 
 .text{
   font-size: 13px;
-  line-height: 100%;
 }
 
 .link{
@@ -74,4 +45,13 @@ header{
   font-size: 13px;
 }
 
+.show{
+  margin: 33px;
+  font-size: 13px;
+}
+
+
+.edit{
+  display: inline-block;
+}
 

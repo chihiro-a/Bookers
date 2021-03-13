@@ -1,2 +1,16 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<h1>Editing Book</h1>
+<%= form_with model: @book,url:"/books/#{@book.id}",local:true do |f| %>
+<!--送信先URL必要？？url:"/books/#{@book.id}"　編集の時は必要っぽい…-->
+<label for="book_title" >Title</label>
+<p class="book_title"><%= f.text_field :title %></p>
+<label for="book_body">Body</label>
+<p class="book_body"><%= f.text_area :body %></p>
+<p><%= f.submit "Update Book"%></p>
+<div>
+    <p class="edit"><%= link_to "Show", "/books/#{@book.id}" %></p>
+    <!--ここは@bookになる…-->
+    <spam>|</spam>
+    <p class="edit"><%= link_to "Back", "/books" %></p>
+</div>
+<% end %>
+

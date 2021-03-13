@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+h1 , h3{
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.notice{
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+  color: green;
+}

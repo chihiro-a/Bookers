@@ -2,30 +2,34 @@
 <body>
   <h3>Books</h3>
   <div class="main-content">
-    <header>
-      <p class="title">Title</p>
-      <p class="body">Body</p>
-      <div class="right-space"></div>
-    </header>
-    <div class="main">
-      <div class="main-left">
-        <!--テーブルタグを使うように変更する！！-->
-        <p class="text">リーダブルコード</p>
-        <p class="text">トラブル知らずのシステム設計</p>
-      </div>
-      <div class="main-center">
-        <p class="text">より良いコードを書くためのシンプルで実践的なテクニック</p>
-        <p class="text">システム設計の要点を図解で説明してくれます</p>
-      </div>
-      <div class="main-right">
-        <p class="link">Show</p>
-        <p class="link">Edit</p>
-        <p class="link">Destroy</p>
-      </div>
-    </div>
+    <table>
+      <thead>
+        <tr>
+        <th class="title">Title</th>
+        <th class="body">Body</th>
+        <th class="right-space"></th>
+      </tr>
+      </thead>
+      <% @books.each do |book| %>
+      <tbody>
+        <td class="text"><%= book.title %></td>
+        <td class="text"><%= book.body %></td>
+        <td>
+          <p class="link"><%= link_to "Show", "/books/#{book.id}" %></p>
+          <!--Showへのリンク-->
+          <p class="link"><%= link_to "Edit", "/books/#{book.id}/edit" %></p>
+          <p class="link"><%= link_to "Destroy", "/books/#{book.id}",method: :delete,"data-confirm"=>"Are you sure？" %></p>
+          <!--「？」が表示されない…-->
+        </td>
+      </tbody>
+      <% end %>
+
+    </table>
+
   </div>
   <h3>New book</h3>
-  <%= form_with model: @book,local:true do |f| %>
+  <%= form_with model: @book ,local:true do |f| %>
+  <!--送信先URL入れてみる？-->
   <div class="text-box">Title</div>
   <%= f.text_field :title %>
   <div class="text-box">Body</div>

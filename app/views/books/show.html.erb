@@ -1,3 +1,9 @@
-<h1>詳細画面</h1>
-<span><%= @book.title %></span>
-<span><%= @book.body %></span>
+
+<p class="show"><strong>Title:</strong><%= @book.title %></p>
+<p class="show"><strong>Body:</strong><%= @book.body %></span>
+<div>
+    <p class="edit"><%= link_to "Edit", "/books/#{@book.id}/edit" %></p>
+    <!--ここは@bookになる…-->
+    <spam>|</spam>
+    <p class="edit"><%= link_to "Back", "/books" %></p>
+</div>
