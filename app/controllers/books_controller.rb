@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     # index内で空の@bookを作成することができる！
-    @books = Book.all
+    @books = Book.all.order(created_at: :desc)
+    # 投稿時間が新しい順に並び替える
   end
 
   def show
@@ -11,13 +12,17 @@ class BooksController < ApplicationController
 
 
   def create
-    # @book = Book.new
-    # new内での定義ではなくcreate内で定義した
+    @books = Book.all.order(created_at: :desc)
+    # エラーメッセージを表示するために追加。create内で@booksの定義がないと
+    # no method erroeになる…。indexを経由しないから@booksが見つからないっぽい？
     @book = Book.new(book_params)
-    @book.save
-    redirect_to ("/books/#{@book[:id]}"),notice: 'Book was successfully created.'
-
-    # リダイレクト先確認　showへ
+    if @book.save
+      redirect_to ("/books/#{@book[:id]}"),notice: 'Book was successfully created.'
+       # リダイレクト先確認　showへ
+    else
+      render ('books/index')
+      # リダイレクトからレンダーに変更。フォルダ名/ファイル名をそのまま記述する。
+    end
   end
 
   def edit
@@ -25,10 +30,16 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
+    # これがないとNoMethoderroeになるけど、内容ダブってるしエラーメッセージでない…
     book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to ("/books/#{book[:id]}"),notice: 'Book was successfully updated.'
-    # Showへリダイレクト
+    if book.update(book_params)
+      redirect_to ("/books/#{book[:id]}"),notice: 'Book was successfully updated.'
+      # Showへリダイレクト
+    else
+      render ('books/edit')
+      # editへレンダー
+    end
   end
 
   def destroy

@@ -55,3 +55,23 @@ table{
   display: inline-block;
 }
 
+ul{
+  font-size: 13px;
+  margin: 33px;
+}
+
+.errors{
+  width: 450px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  border: solid #c00 2px;
+  background-color: #f0f0f0;
+}
+
+h4{
+  color: white;
+  background-color: #c00;
+  font-size: 12px;
+  padding: 5px 5px 5px 15px;
+  margin-top: 0;
+}

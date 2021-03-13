@@ -28,8 +28,25 @@
 
   </div>
   <h3>New book</h3>
+
+
+
+  <!--エラーメッセージ-->
+  <% if @book.errors.any? %>
+    <div class = "errors">
+      <h4><%= pluralize(@book.errors.count,"error") %> prohibited this product from being saved:</h4>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_with model: @book ,local:true do |f| %>
   <!--送信先URL入れてみる？-->
+
+
   <div class="text-box">Title</div>
   <%= f.text_field :title %>
   <div class="text-box">Body</div>
