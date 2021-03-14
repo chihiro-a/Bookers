@@ -1,0 +1,10 @@
+
+
+<p class="show"><strong>Title:</strong><%= @book.title %></p>
+<p class="show"><strong>Body:</strong><%= @book.body %></span>
+<div>
+    <p class="edit"><%= link_to "Edit", "/books/#{@book.id}/edit" %></p>
+    <!--ここは@bookになる…-->
+    <spam>|</spam>
+    <p class="edit"><%= link_to "Back", "/books" %></p>
+</div>

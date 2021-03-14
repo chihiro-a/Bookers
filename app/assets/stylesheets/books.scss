@@ -1,0 +1,96 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin: 33px;
+  max-width : 800px;
+  font-size: 13px;
+}
+
+
+table{
+  width : 100%;
+}
+
+.book_title , .book_body , .submit{
+  margin: 0 0 10px 0;
+}
+
+
+h2,h1, .show , .book_title, .book_body{
+  font-family: "verdana", "arial", "helvetica", sans-serif;
+}
+
+.title{
+  width: 25%;
+}
+
+.body{
+  width: 50%;
+}
+
+.right-space{
+  width: 25%;
+}
+
+.title , .body{
+ text-align: center;
+ font-weight: bolder;
+ font-size: 13px;
+ margin-top: 0;
+ margin-bottom: 0;
+}
+
+.main-content{
+  margin-left: 5px;
+}
+
+
+.text{
+  font-size: 13px;
+}
+
+.link{
+  display: inline;
+  font-size: 13px;
+}
+
+.show{
+  margin: 33px;
+  font-size: 13px;
+}
+
+
+.edit{
+  display: inline-block;
+  margin: 0;
+}
+
+ul{
+  font-size: 13px;
+  margin: 33px;
+}
+
+.errors{
+  width: 450px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  border: solid #c00 2px;
+  background-color: #f0f0f0;
+}
+
+h4{
+  color: white;
+  background-color: #c00;
+  font-size: 12px;
+  padding: 5px 5px 5px 15px;
+  margin-top: 0;
+}
+
+.text-box{
+  margin-bottom: 10px;
+}
+
+.comment{
+  margin: 0;
+}

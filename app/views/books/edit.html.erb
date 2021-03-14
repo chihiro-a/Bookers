@@ -1,0 +1,28 @@
+<h1>Editing Book</h1>
+<!--↓エラー文-->
+  <% if @book.errors.any? %>
+    <div class = "errors">
+      <h4><%= pluralize(@book.errors.count,"error") %> prohibited this product from being saved:</h4>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--↑エラー文-->
+<%= form_with model: @book,url:"/books/#{@book.id}",local:true do |f| %>
+<!--送信先URL必要？？url:"/books/#{@book.id}"　編集の時は必要っぽい…-->
+<label for="book_title" >Title</label>
+<p class="book_title"><%= f.text_field :title %></p>
+<label for="book_body">Body</label>
+<p class="book_body"><%= f.text_area :body %></p>
+<p class="submit"><%= f.submit "Update Book"%></p>
+<div>
+    <p class="edit"><%= link_to "Show", "/books/#{@book.id}" %></p>
+    <!--ここは@bookになる…-->
+    <spam>|</spam>
+    <p class="edit"><%= link_to "Back", "/books" %></p>
+</div>
+<% end %>
+
