@@ -15,10 +15,10 @@
         <td class="text"><%= book.title %></td>
         <td class="text"><%= book.body %></td>
         <td>
-          <p class="link"><%= link_to "Show", "/books/#{book.id}" %></p>
+          <p class="link"><%= link_to "Show", book_path(book.id) %></p>
           <!--Showへのリンク-->
-          <p class="link"><%= link_to "Edit", "/books/#{book.id}/edit" %></p>
-          <p class="link"><%= link_to "Destroy", "/books/#{book.id}",method: :delete,"data-confirm"=>"Are you sure？" %></p>
+          <p class="link"><%= link_to "Edit", edit_book_path(book.id) %></p>
+          <p class="link"><%= link_to "Destroy", book_path(book.id),method: :delete,"data-confirm"=>"Are you sure？" %></p>
           <!--「？」が表示されない…-->
         </td>
       </tbody>
@@ -47,11 +47,17 @@
   <!--送信先URL入れてみる？-->
 
 
-  <div class="text-box">Title</div>
-  <%= f.text_field :title %>
-  <div class="text-box">Body</div>
-  <%= f.text_area :body %>
-  <div><%= f.submit "Create Book" %></div>
+  <div class="text-box">
+    <p class="comment">Title</p>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="text-box">
+    <p class="comment">Body</p>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="text-box"><%= f.submit "Create Book" %></div>
   <% end %>
 
 

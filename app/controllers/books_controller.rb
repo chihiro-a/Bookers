@@ -2,8 +2,9 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     # index内で空の@bookを作成することができる！
-    @books = Book.all.order(created_at: :desc)
+    @books = Book.all
     # 投稿時間が新しい順に並び替える
+    # .order(created_at: :desc)をつけるとRspecでエラーがでる…
   end
 
   def show
@@ -12,9 +13,9 @@ class BooksController < ApplicationController
 
 
   def create
-    @books = Book.all.order(created_at: :desc)
+    @books = Book.all
     # エラーメッセージを表示するために追加。create内で@booksの定義がないと
-    # no method erroeになる…。indexを経由しないから@booksが見つからないっぽい？
+    # no method erroeになる…。indexを経由しないで直接ビューを表示するから@booksが見つからないっぽい？
     @book = Book.new(book_params)
     if @book.save
       redirect_to ("/books/#{@book[:id]}"),notice: 'Book was successfully created.'
@@ -34,7 +35,7 @@ class BooksController < ApplicationController
     # book = Book.find(params[:id]) から@bookに変更した
     if @book.update(book_params)
       # ここも@bookに変更した
-      redirect_to ("/books/#{book[:id]}"),notice: 'Book was successfully updated.'
+      redirect_to ("/books/#{@book[:id]}"),notice: 'Book was successfully updated.'
       # Showへリダイレクト
     else
       # @book = Book.find(params[:id])
@@ -48,7 +49,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to("/books")
+    redirect_to ("/books"),notice: 'Book was successfully destroyed.'
   end
 
 
