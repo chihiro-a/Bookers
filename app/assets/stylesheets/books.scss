@@ -4,12 +4,22 @@
 body{
   margin: 33px;
   max-width : 800px;
+  font-size: 13px;
 }
+
 
 table{
   width : 100%;
 }
 
+.book_title , .book_body , .submit{
+  margin: 0 0 10px 0;
+}
+
+
+h2,h1{
+  font-family: "verdana", "arial", "helvetica", sans-serif;
+}
 
 .title{
   width: 25%;
@@ -53,6 +63,7 @@ table{
 
 .edit{
   display: inline-block;
+  margin: 0;
 }
 
 ul{

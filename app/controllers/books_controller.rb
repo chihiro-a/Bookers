@@ -31,14 +31,17 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    # これがないとNoMethoderroeになるけど、内容ダブってるしエラーメッセージでない…
-    book = Book.find(params[:id])
-    if book.update(book_params)
+    # book = Book.find(params[:id]) から@bookに変更した
+    if @book.update(book_params)
+      # ここも@bookに変更した
       redirect_to ("/books/#{book[:id]}"),notice: 'Book was successfully updated.'
       # Showへリダイレクト
     else
+      # @book = Book.find(params[:id])
+      # ここにいれてみる？？
+      # これがないとNoMethoderroeになるけど、内容ダブってるしエラーメッセージでない…
       render ('books/edit')
-      # editへレンダー
+      # editにレンダー
     end
   end
 

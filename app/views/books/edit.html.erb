@@ -17,7 +17,7 @@
 <p class="book_title"><%= f.text_field :title %></p>
 <label for="book_body">Body</label>
 <p class="book_body"><%= f.text_area :body %></p>
-<p><%= f.submit "Update Book"%></p>
+<p class="submit"><%= f.submit "Update Book"%></p>
 <div>
     <p class="edit"><%= link_to "Show", "/books/#{@book.id}" %></p>
     <!--ここは@bookになる…-->
